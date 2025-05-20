@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const fishTypes = [
         {
             name: 'Ikan Badut',
-            image: 'Asset-game/Fish/ClownFish.png',
+            image: '/Asset-game/Fish/ClownFish.png',
             description: 'Ikan badut (Clownfish) hidup bersama anemon laut. Mereka memiliki warna oranye dengan garis putih. Ikan ini terkenal karena film "Finding Nemo"!',
             points: 10,
             speed: 1.5,
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: 'Ikan Salmon',
-            image: 'Asset-game/Fish/Salmon.webp',
+            image: '/Asset-game/Fish/Salmon.webp',
             description: 'Ikan salmon merupakan salah satu spesies ikan yang dikenal memiliki siklus hidup yang sangat unik dan menantang. Salmon memiliki kemampuan luar biasa untuk bermigrasi.',
             points: 15,
             speed: 1.2,
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: 'Ikan Bandeng',
-            image: 'Asset-game/Fish/bandeng.png',
+            image: '/Asset-game/Fish/bandeng.png',
             description: 'Ikan bandeng adalah spesies berkelompok yang memiliki mulut kecil tanpa gigi dan sirip ekor besar bercabang dalam. Mata ditutupi lapisan tebal jaringan agar-agar.',
             points: 20,
             speed: 2.0,
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: 'Ikan Tuna',
-            image: 'Asset-game/Fish/Tuna.webp',
+            image: '/Asset-game/Fish/Tuna.webp',
             description: 'Ikan tuna adalah perenang cepat yang dapat menempuh jarak jauh. Mereka sangat penting untuk ekosistem laut dan makanan manusia.',
             points: 15,
             speed: 1.8,
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: 'Bintang Laut',
-            image: 'Asset-game/Fish/StarFish.png',
+            image: '/Asset-game/Fish/StarFish.png',
             description: 'Bintang laut tidak benar-benar ikan! Mereka adalah hewan laut yang dapat menumbuhkan kembali bagian tubuhnya yang hilang.',
             points: 10,
             speed: 0.5,
@@ -141,31 +141,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const trashTypes = [
         {
             name: 'Botol Plastik',
-            image: 'Asset-game/Trash/PlasticCup.png',
+            image: '/Asset-game/Trash/PlasticCup.png',
             points: 5,
             floatLevel: 'top'
         },
         {
             name: 'Kantong Plastik',
-            image: 'Asset-game/Trash/PlasticBags.png',
+            image: '/Asset-game/Trash/PlasticBags.png',
             points: 5,
             floatLevel: 'middle'
         },
         {
             name: 'Kaleng',
-            image: 'Asset-game/Trash/Can_of_Soda.webp',
+            image: '/Asset-game/Trash/Can_of_Soda.webp',
             points: 5,
             floatLevel: 'middle'
         },
         {
             name: 'Botol Kaca',
-            image: 'Asset-game/Trash/GlassBottle.png',
+            image: '/Asset-game/Trash/GlassBottle.png',
             points: 8,
             floatLevel: 'middle'
         },
         {
             name: 'Sedotan Plastik',
-            image: 'Asset-game/Trash/Straw.png',
+            image: '/Asset-game/Trash/Straw.png',
             points: 3,
             floatLevel: 'top'
         }
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: 'Poin Ganda',
-            image: 'Asset-game/PowerUps/DoublePoints.png',
+            image: '/Asset-game/Object/pngtree-x2-silver-and-pink-balloons-png-image_16010859.png',
             effect: 'doublePoints',
             duration: 10000,
             description: 'Poin yang diperoleh digandakan selama 10 detik!'

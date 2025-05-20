@@ -157,7 +157,7 @@ body {
     top: 18%;
     width: 450px;
     height: 180px;
-    background: url('Asset-game/Object/boattttttttt-removebg-preview.png') no-repeat center/contain;
+    background: url('/Asset-game/Object/boattttttttt-removebg-preview.png') no-repeat center/contain;
     z-index: 5;
     filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
 }
@@ -186,7 +186,7 @@ body {
 }
 
 .weather-overlay.rain {
-    background: url('Asset-game/Object/hujan.png') repeat;
+    background: url('/Asset-game/Object/hujan.png') repeat;
     animation: rain 0.5s linear infinite;
     z-index: 6;
 }
@@ -198,7 +198,7 @@ body {
 
 .cloud {
     position: absolute;
-    background: url('Asset-game/Object/awan.png') no-repeat center/contain;
+    background: url('/Asset-game/Object/awan.png') no-repeat center/contain;
     opacity: 0.9;
     z-index: 2;
 }
@@ -241,7 +241,7 @@ body {
     position: absolute;
     width: 40px;
     height: 40px;
-    background: url('Asset-game/Fish/seagull.gif') no-repeat center/contain;
+    background: url('/Asset-game/Fish/seagull.gif') no-repeat center/contain;
     top: 20%;
     left: 10%;
     animation: flySeagull 20s linear infinite;
@@ -297,7 +297,7 @@ body {
     top: 0;
     width: 200%;
     height: 30px;
-    background: url('Asset-game/Object/waves-156619_1280.webp') repeat-x;
+    background: url('/Asset-game/Object/waves-156619_1280.webp') repeat-x;
     animation: waveMove 3s linear infinite;
 }
 
@@ -335,7 +335,7 @@ body {
     bottom: 0;
     width: 50px;
     height: 100px;
-    background: url('Asset-game/Asset-game-2/PNG/Let/Seaweed_1.png') no-repeat center/contain;
+    background: url('/Asset-game/Asset-game-2/PNG/Let/Seaweed_1.png') no-repeat center/contain;
     z-index: 1;
     transform-origin: bottom center;
     animation: sway 4s infinite ease-in-out alternate;
@@ -347,7 +347,7 @@ body {
     bottom: 0;
     width: 60px;
     height: 120px;
-    background: url('Asset-game/Asset-game-2/PNG/Let/Stone_3.png') no-repeat center/contain;
+    background: url('/Asset-game/Asset-game-2/PNG/Let/Stone_3.png') no-repeat center/contain;
     border-radius: 10px;
     z-index: 1;
     transform-origin: bottom center;
@@ -537,7 +537,7 @@ body {
     position: absolute;
     width: 250px;
     height: 350px;
-    background: url('Asset-game/Object/Screenshot_2025-05-20_185252-removebg-preview.png') no-repeat center/contain;
+    background: url('/Asset-game/Object/Screenshot_2025-05-20_185252-removebg-preview.png') no-repeat center/contain;
     z-index: 3;
     transform-origin: left center;
     cursor: pointer;
@@ -565,7 +565,7 @@ body {
     position: absolute;
     width: 30px;
     height: 30px;
-    background: url('Asset-game/Object/FishingBait2.png') no-repeat center/contain;
+    background: url('/Asset-game/Object/FishingBait2.png') no-repeat center/contain;
     z-index: 5;
     will-change: top, left;
     top: calc(18% + 180px); /* Moved 50px lower */
