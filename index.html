@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch Fish and Trash</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon"type="image/x-icon" href="Asset-game/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="start-menu" class="menu">
+        <div class="menu-content">
+            <h1>Catch Fish and Trash</h1>
+            <p>Bantu bersihkan laut dari sampah dan pelajari tentang ikan!</p>
+            <button id="start-game-btn">Mulai Bermain</button>
+            <button id="how-to-play-btn">Cara Bermain</button>
+            <button id="sound-settings-btn">Pengaturan Suara</button>
+            <button id="leaderboard-btn">Leaderboard</button>
+        </div>
+    </div>
+
+    <div id="how-to-play-menu" class="menu hidden">
+        <div class="menu-content">
+            <h1>Cara Bermain</h1>
+            <ul>
+                <li>Klik gagang pancing di kapal untuk menurunkan kail</li>
+                <li>Geser kursor di laut untuk menggerakkan kail</li>
+                <li>Klik gagang lagi untuk menarik kail kembali</li>
+                <li>Tangkap ikan untuk mendapatkan pengetahuan tentang mereka</li>
+                <li>Tangkap sampah untuk membersihkan laut</li>
+                <li>Dapatkan poin untuk setiap ikan dan sampah yang kamu tangkap</li>
+                <li>Upgrade kapal dan pancing untuk hasil lebih baik!</li>
+            </ul>
+            <button id="back-to-menu-btn">Kembali ke Menu</button>
+        </div>
+    </div>
+
+    <div id="sound-settings-menu" class="menu hidden">
+        <div class="menu-content">
+            <h1>Pengaturan Suara</h1>
+            <label for="bgm-volume">Volume Musik Latar:</label>
+            <input type="range" id="bgm-volume" min="0" max="1" step="0.1" value="0.3">
+            <label for="sfx-volume">Volume Efek Suara:</label>
+            <input type="range" id="sfx-volume" min="0" max="1" step="0.1" value="1.0">
+            <button id="back-to-menu-btn-2">Kembali ke Menu</button>
+        </div>
+    </div>
+
+    <div id="leaderboard-menu" class="menu hidden">
+        <div class="menu-content">
+            <h1>Leaderboard</h1>
+            <div id="leaderboard-content">
+                <p>Belum ada skor yang tercatat.</p>
+            </div>
+            <button id="back-to-menu-btn-3">Kembali ke Menu</button>
+        </div>
+    </div>
+
+    <div id="pause-menu" class="menu hidden">
+        <div class="menu-content">
+            <h1>Game Dijeda</h1>
+            <button id="resume-btn">Lanjutkan</button>
+            <button id="restart-btn">Mulai Ulang</button>
+            <button id="back-to-menu-btn-4">Kembali ke Menu</button>
+        </div>
+    </div>
+
+    <div class="game-container hidden">
+        <div class="sky">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="cloud cloud3"></div>
+            <div class="sun"></div>
+        </div>
+        <div class="weather-overlay"></div>
+        <div class="sea">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="sea-floor"></div>
+            <div class="seaweed-container"></div>
+        </div>
+        <div class="boat"></div>
+        <div class="fisherman"></div>
+        <div class="fishing-rod" style="top:300px;"></div>
+        <div class="fishing-line"></div>
+        <div class="hook"></div>
+        <div class="top-panel">
+            <div class="score-container">
+                <span>Skor: <span id="score">0</span></span>
+                <span>Ikan: <span id="fish-caught">0</span></span>
+            </div>
+            <div class="timer">Waktu: <span id="time-left">60</span></div>
+            <div class="pause-btn" id="pause-btn">⏸️</div>
+            <div class="trash-bin">
+                <div class="trash-bin-top"></div>
+                <div class="trash-counter">Sampah: <span id="trash-caught">0</span></div>
+            </div>
+        </div>
+        <div class="instruction">Klik gagang pancing di kapal untuk memancing!</div>
+        <div class="combo-counter hidden">Combo: <span id="combo-count">0</span>x</div>
+        <div class="achievement-notification hidden"></div>
+    </div>
+
+    <div id="fish-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="fish-name">Nama Ikan</h2>
+            <div class="fish-image-container">
+                <img id="fish-modal-image" class="fish-image" src="" alt="Fish Image">
+            </div>
+            <p id="fish-description" class="fish-fact">Deskripsi ikan akan muncul di sini.</p>
+            <button id="continue-btn">Lanjutkan Memancing!</button>
+        </div>
+    </div>
+
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>Permainan Selesai!</h2>
+            <p>Skor Akhir: <span id="final-score">0</span></p>
+            <p>Ikan Tertangkap: <span id="final-fish">0</span></p>
+            <p>Sampah Tertangkap: <span id="final-trash">0</span></p>
+            <button id="play-again-btn">Main Lagi</button>
+            <button id="menu-btn">Kembali ke Menu</button>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+</html>

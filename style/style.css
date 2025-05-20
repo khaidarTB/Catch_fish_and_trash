@@ -1,0 +1,934 @@
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: url('Asset-game/Background/coast-bg.jpg') no-repeat center/cover;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Menu Styles */
+.menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #1E90FF 0%, #00008B 100%);
+    z-index: 100;
+}
+.menu-content {
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 50px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: float 4s ease-in-out infinite;
+    border: 4px solid #FFD700;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.menu h1 {
+    color: #00008B;
+    margin-bottom: 30px;
+    font-size: 3.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu p {
+    margin-bottom: 35px;
+    font-size: 1.6em;
+    color: #333;
+}
+
+.menu button {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    margin: 15px;
+    border-radius: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.menu button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.menu button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.menu ul {
+    text-align: left;
+    margin: 30px 20px;
+    padding-left: 30px;
+}
+
+.menu li {
+    margin: 20px 0;
+    font-size: 1.3em;
+    color: #333;
+}
+
+/* Leaderboard Menu */
+#leaderboard-content {
+    margin: 30px 0;
+    font-size: 1.4em;
+    color: #333;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#leaderboard-content ol {
+    list-style-position: inside;
+    text-align: left;
+    padding: 0 20px;
+}
+
+#leaderboard-content li {
+    margin: 15px 0;
+    font-size: 1.2em;
+}
+
+/* Sound Settings Menu */
+#sound-settings-menu label {
+    display: block;
+    margin: 20px 0 10px;
+    font-size: 1.4em;
+    color: #333;
+}
+
+#sound-settings-menu input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+    accent-color: #4CAF50;
+}
+
+/* Game Container */
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Boat */
+.boat {
+    position: absolute;
+    top: 18%;
+    width: 450px;
+    height: 180px;
+    background: url('Asset-game/Object/boattttttttt-removebg-preview.png') no-repeat center/contain;
+    z-index: 5;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Sky */
+.sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 100%);
+    z-index: 1;
+    transition: background 2s ease;
+}
+
+.sky.night {
+    background: linear-gradient(to bottom, #0A2A5B 0%, #000033 100%);
+}
+
+.weather-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.weather-overlay.rain {
+    background: url('Asset-game/Object/hujan.png') repeat;
+    animation: rain 0.5s linear infinite;
+    z-index: 6;
+}
+
+@keyframes rain {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+.cloud {
+    position: absolute;
+    background: url('Asset-game/Object/awan.png') no-repeat center/contain;
+    opacity: 0.9;
+    z-index: 2;
+}
+
+.cloud1 {
+    width: 120px;
+    height: 70px;
+    top: 15%;
+    left: 10%;
+    animation: moveCloud 50s linear infinite;
+}
+
+.cloud2 {
+    width: 140px;
+    height: 80px;
+    top: 25%;
+    left: 45%;
+    animation: moveCloud 70s linear infinite;
+}
+
+.cloud3 {
+    width: 100px;
+    height: 60px;
+    top: 10%;
+    left: 80%;
+    animation: moveCloud 60s linear infinite;
+}
+
+@keyframes moveCloud {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100vw); }
+}
+
+.cloud {
+    background-size: cover;
+    border: none;
+}
+
+.seagull {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('Asset-game/Fish/seagull.gif') no-repeat center/contain;
+    top: 20%;
+    left: 10%;
+    animation: flySeagull 20s linear infinite;
+}
+
+@keyframes flySeagull {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(80vw) translateY(-20px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+.sun {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, #FFD700 60%, transparent);
+    border-radius: 50%;
+    top: 10%;
+    right: 10%;
+    box-shadow: 0 0 50px #FFD700;
+    z-index: 1;
+    animation: sunPulse 4s infinite alternate;
+}
+
+.sun.night {
+    background: radial-gradient(circle, #C0C0C0 60%, transparent);
+    box-shadow: 0 0 50px #C0C0C0;
+}
+
+@keyframes sunPulse {
+    0% { transform: scale(1); box-shadow: 0 0 50px #FFD700; }
+    100% { transform: scale(1.15); box-shadow: 0 0 70px #FFD700; }
+}
+
+/* Sea */
+.sea {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to bottom, #1E90FF 0%, #00008B 100%);
+    z-index: 3;
+    overflow: hidden;
+    transition: background 2s ease;
+}
+
+.sea.night {
+    background: linear-gradient(to bottom, #0A2A5B 0%, #000033 100%);
+}
+
+.wave {
+    position: absolute;
+    top: 0;
+    width: 200%;
+    height: 30px;
+    background: url('Asset-game/Object/waves-156619_1280.webp') repeat-x;
+    animation: waveMove 3s linear infinite;
+}
+
+.wave:nth-child(2) {
+    top: 15px;
+    opacity: 0.7;
+    animation: waveMove 4s linear infinite reverse;
+}
+
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.sea-floor {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 12%;
+    background: linear-gradient(to bottom, #D2B48C, #A0522D);
+    z-index: 3;
+}
+
+/* Rumput Laut */
+.seaweed-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 12%;
+    z-index: 4;
+}
+
+.seaweed {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 100px;
+    background: url('Asset-game/Asset-game-2/PNG/Let/Seaweed_1.png') no-repeat center/contain;
+    z-index: 1;
+    transform-origin: bottom center;
+    animation: sway 4s infinite ease-in-out alternate;
+}
+
+/* Karang */
+.coral {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 120px;
+    background: url('Asset-game/Asset-game-2/PNG/Let/Stone_3.png') no-repeat center/contain;
+    border-radius: 10px;
+    z-index: 1;
+    transform-origin: bottom center;
+    animation: sway 5s infinite ease-in-out alternate;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes sway {
+    0% { transform: rotate(-7deg); }
+    50% { transform: rotate(7deg); }
+    100% { transform: rotate(-7deg); }
+}
+
+/* Top Panel */
+.top-panel {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    z-index: 10;
+}
+
+/* Score Container */
+.score-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border: 3px solid #FFD700;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Score Pulse Animation */
+.score-pulse {
+    animation: scorePulse 0.4s ease-in-out;
+}
+
+@keyframes scorePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Combo Counter */
+.combo-counter {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.95), rgba(255, 165, 0, 0.95));
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-size: 1.8em;
+    color: #FFF;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.combo-pulse {
+    animation: comboPulse 0.4s ease-in-out;
+}
+
+@keyframes comboPulse {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.4); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Achievement Notification */
+.achievement-notification {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.95), rgba(46, 125, 50, 0.95));
+    padding: 15px 30px;
+    border-radius: 20px;
+    font-size: 1.6em;
+    color: #FFF;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s forwards, slideOut 0.5s 3s forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+    to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(-50%) translateY(0); opacity: 1; }
+    to { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+}
+
+/* Timer */
+.timer {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border: 3px solid #FFD700;
+}
+
+.time-warning {
+    color: #FF4500;
+    animation: timeWarning 0.5s infinite alternate;
+}
+
+@keyframes timeWarning {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* Pause Button */
+.pause-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    border: 3px solid #FFD700;
+}
+
+.pause-btn:hover {
+    transform: scale(1.2);
+    background: linear-gradient(135deg, rgba(255, 235, 59, 0.95), rgba(251, 192, 45, 0.95));
+}
+
+/* Trash Bin */
+.trash-bin {
+    width: 90px;
+    height: 110px;
+    background: linear-gradient(135deg, #3CB371, #2E8B57);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 3px solid #FFD700;
+}
+
+.trash-bin-top {
+    width: 100px;
+    height: 30px;
+    background: linear-gradient(135deg, #2E8B57, #228B22);
+    border-radius: 20px 20px 0 0;
+}
+
+.trash-counter {
+    color: white;
+    font-weight: bold;
+    margin-top: 35px;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Instruction */
+.instruction {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    padding: 15px 25px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 10;
+    font-size: 1.5em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border: 3px solid #FFD700;
+}
+
+/* Fishing Equipment */
+.fishing-rod {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    background: url('Asset-game/Object/Screenshot_2025-05-20_185252-removebg-preview.png') no-repeat center/contain;
+    z-index: 3;
+    transform-origin: left center;
+    cursor: pointer;
+    top: calc(18% - 50px);
+    left: calc(-50px + 225px + 50px); /* Moved 50px to the right */
+    opacity: 1;
+    animation: moveRod 1.5s forwards ease-out;
+}
+
+.fishing-line {
+    position: absolute;
+    height: 3px;
+    background: linear-gradient(to right, #DDD, #BBB);
+    z-index: 4;
+    transform-origin: 0 0;
+    will-change: width, transform;
+    top: calc(18% + 100px); /* Moved 50px lower */
+    left: calc(-50px + 225px + 45px); /* Adjusted to align with rod */
+    width: 200px; /* Initial length of fishing line */
+    transform: rotate(45deg); /* Angle the line downward */
+}
+
+/* Hook Positioning */
+.hook {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('Asset-game/Object/FishingBait2.png') no-repeat center/contain;
+    z-index: 5;
+    will-change: top, left;
+    top: calc(18% + 180px); /* Moved 50px lower */
+    left: calc(-50px + 225px + 245px); /* Adjusted to align with the end of the fishing line */
+}
+
+/* Fish, Trash, and Power-Ups */
+.fish, .trash, .power-up {
+    position: absolute;
+    z-index: 4;
+    transition: transform 0.3s ease;
+}
+
+.fish {
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform-origin: center;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+.fish.swim {
+    animation: swim 0.5s infinite alternate;
+}
+
+.fish.glide {
+    animation: glide 1s infinite alternate;
+}
+
+.fish.spark-cage {
+    animation: sparkle 0.8s infinite;
+}
+
+@keyframes swim {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(5px) rotate(3deg); }
+}
+
+@keyframes glide {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+@keyframes sparkle {
+    0% { filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4)) brightness(1); }
+    50% { filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4)) brightness(1.5); }
+    100% { filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4)) brightness(1); }
+}
+
+.trash {
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+    animation: floatTrash 2s infinite alternate;
+}
+
+@keyframes floatTrash {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(5px); }
+}
+
+.power-up {
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Glow Effect */
+.glow {
+    box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.9);
+    animation: glowPulse 0.6s ease-in-out;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.9); }
+    50% { box-shadow: 0 0 30px 12px rgba(255, 215, 0, 1); }
+    100% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.9); }
+}
+
+/* Ripple Effect */
+.ripple {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: 10;
+    animation: ripple 0.7s forwards;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(3.5); opacity: 0; }
+}
+
+/* Particle Effect */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFD700;
+    border-radius: 50%;
+    z-index: 10;
+    animation: particle 0.5s forwards;
+}
+
+@keyframes particle {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(calc(30px * cos(var(--angle))), calc(30px * sin(var(--angle)))); opacity: 0; }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #FFF, #E3F2FD);
+    margin: 10% auto;
+    padding: 50px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s;
+    border: 4px solid #FFD700;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal h2 {
+    color: #00008B;
+    margin-bottom: 30px;
+    font-size: 3em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #666;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.fish-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.fish-image {
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.fish-image:hover {
+    transform: scale(1.15);
+}
+
+.fish-fact {
+    margin: 30px 0;
+    font-size: 1.3em;
+    line-height: 1.7;
+    color: #333;
+}
+
+button {
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.3em;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #66BB6A, #4CAF50);
+    transform: translateY(-5px);
+}
+
+/* Bubbles */
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    animation: bubbleWobble 1.5s infinite;
+}
+
+@keyframes bubbleWobble {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .top-panel {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+
+    .score-container, .timer, .trash-bin {
+        font-size: 1.2em;
+        padding: 12px 20px;
+        margin-bottom: 12px;
+    }
+
+    .pause-btn {
+        font-size: 1.6em;
+        padding: 8px 15px;
+    }
+
+    .instruction {
+        font-size: 1.2em;
+        padding: 10px 20px;
+        top: 100px;
+    }
+
+    .combo-counter {
+        font-size: 1.4em;
+        top: 140px;
+    }
+
+    .achievement-notification {
+        font-size: 1.2em;
+        top: 200px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 30px;
+        margin: 15% auto;
+    }
+
+    .modal h2 {
+        font-size: 2em;
+    }
+
+    .fish-image {
+        width: 140px;
+    }
+
+    .menu-content {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    .menu h1 {
+        font-size: 2.5em;
+    }
+
+    .menu button {
+        font-size: 1.2em;
+        padding: 12px 30px;
+    }
+
+    #leaderboard-content {
+        font-size: 1.2em;
+        max-height: 200px;
+    }
+
+    .boat {
+        width: 240px;
+        height: 96px;
+        top: 18%;
+        left: -30px; /* Adjusted for smaller screens */
+    }
+
+    .fishing-rod {
+        width: 120px;
+        height: 168px; /* Scaled proportionally (120/250 * 350) */
+        top: calc(18% - 30px); /* Positioned just above the boat */
+        left: calc(-30px + 120px + 50px); /* Moved 50px to the right */
+    }
+
+    .fishing-line {
+        top: calc(18% + 80px); /* Moved 50px lower */
+        left: calc(-30px + 120px + 45px); /* Aligned with rod */
+    }
+
+    .hook {
+        top: calc(18% + 160px); /* Moved 50px lower */
+        left: calc(-30px + 120px + 165px); /* Aligned with the end of the fishing line */
+    }
+}
+
+@media (max-width: 480px) {
+    .fishing-rod {
+        width: 100px;
+        height: 140px; /* Scaled proportionally (100/250 * 350) */
+        top: calc(18% - 20px); /* Positioned just above the boat */
+        left: calc(-20px + 100px + 50px); /* Moved 50px to the right */
+    }
+
+    .fishing-line {
+        top: calc(18% + 70px); /* Moved 50px lower */
+        left: calc(-20px + 100px + 45px); /* Aligned with rod */
+    }
+
+    .hook {
+        width: 20px;
+        height: 20px;
+        top: calc(18% + 150px); /* Moved 50px lower */
+        left: calc(-20px + 100px + 150px); /* Aligned with the end of the fishing line */
+    }
+
+    .trash-bin {
+        width: 70px;
+        height: 90px;
+    }
+
+    .trash-bin-top {
+        width: 80px;
+        height: 25px;
+    }
+
+    .trash-counter {
+        margin-top: 25px;
+        font-size: 1em;
+    }
+
+    .boat {
+        width: 180px;
+        height: 72px;
+        top: 18%;
+        left: -20px; /* Adjusted for smaller screens */
+    }
+}
