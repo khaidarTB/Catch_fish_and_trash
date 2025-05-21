@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cast: new Audio('Asset-game/Sounds/cast.mp3'),
         catch: new Audio('Asset-game/Sounds/catch.mp3'),
         powerUp: new Audio('Asset-game/Sounds/powerup.mp3'),
-        background: new Audio('Asset-game/Sounds/ocean-ambiance.mp3'),
+        background: new Audio('/Asset-game/sound/backsound-ombak.mp3'),
         combo: new Audio('Asset-game/Sounds/combo.mp3'),
         achievement: new Audio('Asset-game/Sounds/achievement.mp3')
     };
