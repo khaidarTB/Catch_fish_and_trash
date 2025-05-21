@@ -142,31 +142,31 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: 'Botol Plastik',
             image: '/Asset-game/Trash/PlasticCup.png',
-            points: 5,
+            points: -5,
             floatLevel: 'top'
         },
         {
             name: 'Kantong Plastik',
             image: '/Asset-game/Trash/PlasticBags.png',
-            points: 5,
+            points: -5,
             floatLevel: 'middle'
         },
         {
             name: 'Kaleng',
             image: '/Asset-game/Trash/Can_of_Soda.webp',
-            points: 5,
+            points: -5,
             floatLevel: 'middle'
         },
         {
             name: 'Botol Kaca',
             image: '/Asset-game/Trash/GlassBottle.png',
-            points: 8,
-            floatLevel: 'middle'
+            points: -5,
+            floatLevel5: 'middle'
         },
         {
             name: 'Sedotan Plastik',
             image: '/Asset-game/Trash/Straw.png',
-            points: 3,
+            points: -5,
             floatLevel: 'top'
         }
     ];
@@ -826,7 +826,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (caughtItem.type === 'trash') {
                 trashCaught++;
                 score += points;
-                const trashText = 'Selamat! Anda telah mengambil sampah dan membantu membersihkan laut!';
+                const trashText = 'Mohon maaf poin anda berkurang 5 poin karena Anda menangkap sampah!';
                 speakText(trashText);
                 setTimeout(() => {
                     const pointsText = `Anda mendapatkan ${points} poin!`;
